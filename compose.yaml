@@ -1,0 +1,33 @@
+services:
+  api:
+    build: ./docker/api
+    ports:
+      - "8080:80"
+    restart: always
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "password"
+      POSTGRES_DB: database
+    # You definitely shouldn't just have this here
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8080
+    depends_on:
+      - db
+
+
+volumes:
+  pgdata:
+  
+
+
+
