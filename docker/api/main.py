@@ -37,7 +37,7 @@ def read_cpu():
     svmem = psutil.virtual_memory()
 
 
-    return {"total_cpu" : f"{psutil.cpu_percent()}%",
+    return {"total_cpu" : f"{psutil.cpu_percent()}",
             "total_memory" : f"{round(svmem.total/1000000000,1)}GB",
             "percent_memory" : f"{svmem.percent}%"}
 
@@ -54,5 +54,5 @@ print(f"Current Frequency: {cpufreq.current:.2f}Mhz")
 # CPU usage
 print("CPU Usage Per Core:")
 for i, percentage in enumerate(psutil.cpu_percent(percpu=True, interval=1)):
-    print(f"Core {i}: {percentage}%")
+    print(f"Core {i}: {percentage}")
 print(f"Total CPU Usage: {psutil.cpu_percent()}%")
