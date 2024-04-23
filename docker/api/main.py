@@ -9,6 +9,8 @@ from datetime import datetime
 
 import math
 
+from pythonping import ping
+
 app = FastAPI()
 
 
@@ -39,7 +41,16 @@ def read_cpu():
 
     return {"total_cpu" : f"{psutil.cpu_percent()}",
             "total_memory" : f"{round(svmem.total/1000000000,1)}GB",
-            "percent_memory" : f"{svmem.percent}%"}
+            "percent_memory" : f"{svmem.percent}"}
+
+@app.get("/server_latencies")
+def server_latency():
+    # pinging OW US Central
+    latency_status = ping('24.105.62.129', verbose=True, count=10, size=8000)
+    print(latency_status.rtt_avg_ms)
+
+    return {"avg_latency" : f"{latency_status.rtt_avg_ms}"}
+
 
 # let's print CPU information
 print("="*40, "CPU Info", "="*40)

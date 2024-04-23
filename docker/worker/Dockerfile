@@ -27,4 +27,5 @@ RUN pip install -r /requirements.txt
 # We need to define the command to launch when we are going to run the image.
 # We use the keyword 'CMD' to do that.
 # The following command will execute "python ./main.py".
-CMD uvicorn main:app --reload --host 0.0.0.0 --port 80
+
+CMD python3 main.py

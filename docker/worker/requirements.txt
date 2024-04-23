@@ -1,5 +1,2 @@
-fastapi
-psutil
-uvicorn
 pythonping
 psycopg2-binary

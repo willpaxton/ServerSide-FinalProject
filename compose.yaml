@@ -32,6 +32,10 @@ services:
     #   GF_INSTALL_PLUGINS=
     volumes:
       - gfdata:/var/lib/grafana
+  worker:
+    build: ./docker/worker
+    depends_on:
+      - db
 
 volumes:
   pgdata:
