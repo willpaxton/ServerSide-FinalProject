@@ -28,4 +28,5 @@ RUN pip install -r /requirements.txt
 # We use the keyword 'CMD' to do that.
 # The following command will execute "python ./main.py".
 
-CMD python3 main.py
+# CMD ["python3","-u","main.py"]
+CMD python3 -u main.py

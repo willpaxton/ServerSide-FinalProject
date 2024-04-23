@@ -38,15 +38,15 @@ def find_lat(ip_addr):
     return lat.rtt_avg_ms
 
 async def gather_lat():
-    while True:
-        for key in servers:
-            print("IM DOING SOMETHING HERE")
-            latency = find_lat(servers[key])
-            cursor.execute("INSERT INTO latencies (server_name, time, latency) VALUES (%s, %s, %s)", (key, datetime.now(timezone.utc), latency))
-            conn.commit()
-            time.sleep(300)
+    for key in servers:
+        print(f"parsing {key}")
+        latency = find_lat(servers[key])
+        cursor.execute("INSERT INTO latencies (server_name, time, latency) VALUES (%s, %s, %s)", (key, datetime.now(timezone.utc), latency))
+        conn.commit()
+            
         
-
-asyncio.run(gather_lat())
+while True:
+    asyncio.run(gather_lat())
+    time.sleep(300)
 
 
