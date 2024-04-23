@@ -47,6 +47,6 @@ async def gather_lat():
         
 while True:
     asyncio.run(gather_lat())
-    time.sleep(300)
+    time.sleep(60)
 
 

@@ -59,7 +59,7 @@ def server_latency():
     servers = cursor.fetchall()
 
     for x in servers:
-        resp = cursor.execute(f"""SELECT * FROM "latencies" WHERE "server_name" = '{x[0]}' LIMIT 20""");
+        resp = cursor.execute(f"""SELECT * FROM "latencies" WHERE "server_name" = '{x[0]}' LIMIT 60""");
         print(resp)
         data = cursor.fetchall()
         
