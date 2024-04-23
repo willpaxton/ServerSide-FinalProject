@@ -5,12 +5,8 @@ services:
       - 8080:80
     restart: always
   db:
-    image: postgres
+    build: ./docker/db
     restart: always
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: "password"
-      POSTGRES_DB: database
     # You definitely shouldn't just have this here
     ports:
       - 5432:5432
@@ -32,6 +28,8 @@ services:
     #   GF_INSTALL_PLUGINS=
     volumes:
       - gfdata:/var/lib/grafana
+    depends_on:
+      - api
   worker:
     build: ./docker/worker
     depends_on:
@@ -41,7 +39,7 @@ volumes:
   pgdata:
   
   gfdata:
-    external: true
+    # external: true
 
 
 

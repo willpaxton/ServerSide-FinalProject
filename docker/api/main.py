@@ -9,9 +9,16 @@ from datetime import datetime
 
 import math
 
-from pythonping import ping
+import psycopg2
 
 app = FastAPI()
+
+conn = psycopg2.connect(database="database",
+                        host="db",
+                        user="postgres",
+                        password="password",
+                        port="5432")
+
 
 
 # class Item(BaseModel):
@@ -45,11 +52,32 @@ def read_cpu():
 
 @app.get("/server_latencies")
 def server_latency():
-    # pinging OW US Central
-    latency_status = ping('24.105.62.129', verbose=True, count=10, size=8000)
-    print(latency_status.rtt_avg_ms)
+    api_resp = {}
 
-    return {"avg_latency" : f"{latency_status.rtt_avg_ms}"}
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM "servers"');
+    servers = cursor.fetchall()
+
+    for x in servers:
+        resp = cursor.execute(f"""SELECT * FROM "latencies" WHERE "server_name" = '{x[0]}' LIMIT 20""");
+        print(resp)
+        data = cursor.fetchall()
+        
+        api_resp[x[0]] = {}
+    
+
+        for y in range(0, len(data)):
+            name = data[y][0]
+            date = data[y][1]
+            ping = data[y][2]
+
+            api_resp[x[0]][y] = {"name" : name,
+                            "date" : date,
+                            "ping" : ping}
+
+    return api_resp
+    # pinging OW US Central
+    
 
 
 # let's print CPU information
