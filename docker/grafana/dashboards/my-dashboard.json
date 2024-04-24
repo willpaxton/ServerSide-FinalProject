@@ -22,6 +22,17 @@
   "links": [],
   "panels": [
     {
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 10,
+      "title": "Row title",
+      "type": "row"
+    },
+    {
       "datasource": {
         "type": "marcusolsson-json-datasource",
         "uid": "P66D3F9D818C3B264"
@@ -52,10 +63,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 12,
+        "h": 7,
+        "w": 3,
         "x": 0,
-        "y": 0
+        "y": 1
       },
       "id": 3,
       "options": {
@@ -93,6 +104,7 @@
         }
       ],
       "title": "CPU Usage",
+      "transparent": true,
       "type": "gauge"
     },
     {
@@ -126,10 +138,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 0
+        "h": 7,
+        "w": 3,
+        "x": 3,
+        "y": 1
       },
       "id": 2,
       "options": {
@@ -167,7 +179,227 @@
         }
       ],
       "title": "Memory Usage",
+      "transparent": true,
       "type": "gauge"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 8
+      },
+      "id": 9,
+      "panels": [],
+      "title": "Row title",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-json-datasource",
+        "uid": "P66D3F9D818C3B264"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "noValue": "?",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 80
+              },
+              {
+                "color": "yellow",
+                "value": 100
+              },
+              {
+                "color": "orange",
+                "value": 150
+              },
+              {
+                "color": "red",
+                "value": 200
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 9
+      },
+      "id": 6,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.2",
+      "targets": [
+        {
+          "body": "",
+          "cacheDurationSeconds": 0,
+          "datasource": {
+            "type": "marcusolsson-json-datasource",
+            "uid": "P66D3F9D818C3B264"
+          },
+          "fields": [
+            {
+              "jsonPath": "$.latency",
+              "language": "jsonata",
+              "name": ""
+            },
+            {
+              "jsonPath": "$.time",
+              "language": "jsonata",
+              "name": "",
+              "type": "time"
+            }
+          ],
+          "method": "GET",
+          "params": [
+            [
+              "",
+              ""
+            ]
+          ],
+          "queryParams": "",
+          "refId": "A",
+          "urlPath": "/ow-central"
+        }
+      ],
+      "title": "ow-central latency",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-json-datasource",
+        "uid": "P66D3F9D818C3B264"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "noValue": "?",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 80
+              },
+              {
+                "color": "yellow",
+                "value": 100
+              },
+              {
+                "color": "orange",
+                "value": 150
+              },
+              {
+                "color": "red",
+                "value": 200
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 9
+      },
+      "id": 7,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.2",
+      "targets": [
+        {
+          "body": "",
+          "cacheDurationSeconds": 0,
+          "datasource": {
+            "type": "marcusolsson-json-datasource",
+            "uid": "P66D3F9D818C3B264"
+          },
+          "fields": [
+            {
+              "jsonPath": "$.latency",
+              "language": "jsonata",
+              "name": ""
+            },
+            {
+              "jsonPath": "$.time",
+              "language": "jsonata",
+              "name": "",
+              "type": "time"
+            }
+          ],
+          "method": "GET",
+          "params": [
+            [
+              "",
+              ""
+            ]
+          ],
+          "queryParams": "",
+          "refId": "A",
+          "urlPath": "/ow-west"
+        }
+      ],
+      "title": "ow-west latency",
+      "transparent": true,
+      "type": "stat"
     },
     {
       "datasource": {
@@ -232,9 +464,9 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 8
+        "y": 17
       },
-      "id": 4,
+      "id": 8,
       "options": {
         "legend": {
           "calcs": [],
@@ -347,7 +579,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 8
+        "y": 17
       },
       "id": 5,
       "options": {
@@ -396,7 +628,7 @@
           "urlPath": "/ow-west"
         }
       ],
-      "title": "ow-central latency",
+      "title": "ow-west latency",
       "type": "timeseries"
     }
   ],
@@ -407,13 +639,13 @@
     "list": []
   },
   "time": {
-    "from": "2024-04-24T04:31:21.000Z",
-    "to": "2024-04-24T05:23:58.000Z"
+    "from": "2024-04-24T07:12:45.000Z",
+    "to": "2024-04-24T07:38:33.000Z"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "Dashboard",
   "uid": "BwcXP3cnz",
-  "version": 7,
+  "version": 1,
   "weekStart": ""
 }
