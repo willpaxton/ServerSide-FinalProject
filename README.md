@@ -18,9 +18,14 @@ docker compose up --build
 ```
 
 ### Linux
-Same thing as above, or use docker CLI with the same command above
+Same thing as above (with using Docker Desktop), or use docker CLI with the same command above to launch the project
 
-Go to http://localhost:3000/d/BwcXP3cnz/dashboard?orgId=1&refresh=5s&from=now-5m&to=now to pull up the dashboard
+Let Docker do its thing for a bit (could take up to 5 minutes to grab the images and set up the containers).
+
+### Accessing
+
+When running, go to http://localhost:3000/d/BwcXP3cnz/dashboard?orgId=1&refresh=5s&from=now-5m&to=now to pull up the dashboard
+This adds autorefresh and sets a 5 minute data "history" for the latency charts.  This can be changed if desired.  
 
 Other endpoints
 - API: Port 8080
