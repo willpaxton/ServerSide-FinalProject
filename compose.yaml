@@ -4,6 +4,8 @@ services:
     ports:
       - 8080:80
     restart: always
+    depends_on:
+      - db
   db:
     build: ./docker/db
     restart: always
@@ -26,20 +28,18 @@ services:
     restart: always
     # environment: 
     #   GF_INSTALL_PLUGINS=
-    volumes:
-      - gfdata:/var/lib/grafana
     depends_on:
       - api
   worker:
     build: ./docker/worker
     depends_on:
       - db
+    restart: any
 
 volumes:
   pgdata:
-  
-  gfdata:
-    # external: true
+
+
 
 
 

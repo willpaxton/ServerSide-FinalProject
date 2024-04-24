@@ -52,6 +52,9 @@ def read_cpu():
 
 @app.get("/server_latencies")
 def server_latency():
+
+
+
     api_resp = {}
 
     cursor = conn.cursor()
@@ -72,13 +75,72 @@ def server_latency():
             ping = data[y][2]
 
             api_resp[x[0]][y] = {"name" : name,
-                            "date" : date,
+                            "time" : date,
                             "ping" : ping}
 
     return api_resp
     # pinging OW US Central
     
 
+# for later use, this could probably be set up in a loop or something
+
+@app.get("/ow-central")
+def ow_central():
+    cursor = conn.cursor()
+    resp = cursor.execute(f"""SELECT latency FROM "latencies" WHERE "server_name" = 'ow-central'""");
+    print(resp)
+    latency = cursor.fetchall()
+
+    final_latency = []
+
+    for x in latency:
+        final_latency.append(x[0])
+
+    resp = cursor.execute(f"""SELECT time FROM "latencies" WHERE "server_name" = 'ow-central'""");
+    time = cursor.fetchall()
+
+    final_time = []
+
+    for x in time:
+        final_time.append(x[0])
+
+    data = {"latency":final_latency,
+            "time":final_time}
+
+    return data;
+
+@app.get("/ow-west")
+def ow_west():
+    cursor = conn.cursor()
+    resp = cursor.execute(f"""SELECT latency FROM "latencies" WHERE "server_name" = 'ow-west'""");
+    print(resp)
+    latency = cursor.fetchall()
+
+    final_latency = []
+
+    for x in latency:
+        final_latency.append(x[0])
+
+    resp = cursor.execute(f"""SELECT time FROM "latencies" WHERE "server_name" = 'ow-west'""");
+    time = cursor.fetchall()
+
+    final_time = []
+
+    for x in time:
+        final_time.append(x[0])
+
+    data = {"latency":final_latency,
+            "time":final_time}
+
+    return data;
+
+
+@app.get("/test")
+def test():
+    resp = {"list" : [1, 2, 3],
+            "lists" : ["1", "2"],
+            }
+    return resp
 
 # let's print CPU information
 print("="*40, "CPU Info", "="*40)
