@@ -3,7 +3,6 @@
 Trying to fix this :D
 
 ## Installation
-<hr>
 
 ### Windows 
 Easiest way is to install docker desktop here: https://www.docker.com/products/docker-desktop/
