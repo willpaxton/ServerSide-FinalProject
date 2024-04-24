@@ -4,10 +4,15 @@ Trying to fix this :D
 
 ## Installation
 
+First, download or clone the repo to a local folder :D
+```
+git clone https://github.com/willpaxton/ServerSide-FinalProject
+```
+
 ### Windows 
 Easiest way is to install docker desktop here: https://www.docker.com/products/docker-desktop/
 
-Then, open a command line session and run 
+Then, open a command line session within the project directory and run 
 ```
 docker compose up --build
 ```
