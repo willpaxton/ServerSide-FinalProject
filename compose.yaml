@@ -12,8 +12,6 @@ services:
     # You definitely shouldn't just have this here
     ports:
       - 5432:5432
-    volumes:
-      - pgdata:/var/lib/postgresql/data
   adminer:
     image: adminer
     restart: always
@@ -35,9 +33,6 @@ services:
     depends_on:
       - db
     restart: any
-
-volumes:
-  pgdata:
 
 
 

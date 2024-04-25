@@ -31,3 +31,11 @@ Other endpoints
 - API: Port 8080
 - Adminer: Port 8081
 - Grafana: Port 3000
+
+### When Done :D
+No data *should* be persistently stored; to reclaim disk space, just removed the stored images and containers by using the UI in Docker Desktop, or you can use the following command: 
+```
+docker compose down
+docker system prune -a
+```
+(Note: ```docker system prune -a``` removes all unassociated images, so be careful running it if you have )
