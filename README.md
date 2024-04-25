@@ -38,4 +38,4 @@ No data *should* be persistently stored; to reclaim disk space, just removed the
 docker compose down
 docker system prune -a
 ```
-(Note: ```docker system prune -a``` removes all unassociated images, so be careful running it if you have )
+(Note: ```docker system prune -a``` removes all unassociated images, so be careful running it if you have images from previous projects with docker)
