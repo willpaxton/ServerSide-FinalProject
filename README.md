@@ -12,7 +12,7 @@ git clone https://github.com/willpaxton/ServerSide-FinalProject
 ### Windows 
 Easiest way is to install docker desktop here: https://www.docker.com/products/docker-desktop/
 
-Then, open a command line session within the project directory and run 
+Then, open a command line session within the project directory (aka the folder which contains the compose.yml file) and run 
 ```
 docker compose up --build
 ```
